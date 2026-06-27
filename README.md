@@ -21,3 +21,8 @@ Make code readable and easy to configure, maintain and modify.
 Prepare demo application that allows testing the code with some example data.
 
 Do not use any platform specific libraries or implementation-specific language features. Include any supplementary code, such as unit tests. Provide build scripts used for compilation and detailed instructions how to use them.
+
+## AI Tools
+* [Как я перестал вайбкодить и собрал работающий SDLC из пяти промптов](https://habr.com/ru/articles/1018872/) , <https://github.com/pserge-bender/claude-commands-sample/>
+* [Как я заставил ИИ писать код по книжке: Clean Architecture + TDD на автопилоте](https://habr.com/ru/articles/1023998/) , <https://github.com/rakovi4/continue-example>
+* [Ultralight Orchestration](https://gist.github.com/burkeholland/0e68481f96e94bbb98134fa6efd00436)
