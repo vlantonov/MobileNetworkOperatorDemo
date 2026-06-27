@@ -59,6 +59,35 @@ Once `/verify` is clean, this refreshes the `CLAUDE.md` files so they match the 
 
 After `/document`, the feature is ready for your own final read-through and merge, and you start the next feature back at `/clarify`.
 
+## Build & Run
+
+### Prerequisites
+- CMake ≥ 3.16
+- C++17 compiler: GCC ≥ 9, Clang ≥ 10, or MSVC 2019+
+- Internet access on first configure (doctest v2.4.11 fetched automatically via FetchContent)
+
+### Build
+```bash
+cmake -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build
+```
+
+### Run Tests
+```bash
+ctest --test-dir build --output-on-failure
+```
+
+### Run Demo
+```bash
+./build/app/demo/demo
+```
+
+### Disable Tests
+```bash
+cmake -B build -DBUILD_TESTS=OFF
+cmake --build build
+```
+
 ## AI Tools
 * [Как я перестал вайбкодить и собрал работающий SDLC из пяти промптов](https://habr.com/ru/articles/1018872/) , <https://github.com/pserge-bender/claude-commands-sample/>
 * [Как я заставил ИИ писать код по книжке: Clean Architecture + TDD на автопилоте](https://habr.com/ru/articles/1023998/) , <https://github.com/rakovi4/continue-example>
