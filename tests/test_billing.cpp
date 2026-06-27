@@ -218,18 +218,11 @@ TEST_SUITE("weekday_calls") {
     }
 
     // T11: pool expired (call is on day 31 after last credit)
+    // 2024-06-03 is Monday; last_credit = 2024-05-03 → 31 days later → pool expired
     TEST_CASE("home_pool_expired") {
         BillingEngine engine;
-        // last_credit_date = 2024-05-01; call on 2024-06-01 → 31 days later
-        SubscriberAccount acc{30, date(2024, 5, 1)};
+        SubscriberAccount acc{30, date(2024, 5, 3)};
         auto r = engine.calculateCost(
-            dt(2024, 6, 1, 10, 0, 0),   // Saturday — use Sunday instead to avoid weekend
-            dt(2024, 6, 1, 10, 3, 0),
-            "0501234567", acc);
-        // 2024-06-01 is Saturday → weekend rule applies; use a weekday instead
-        // Let's use 2024-06-03 (Monday), last_credit = 2024-05-03 → 31 days later
-        acc = {30, date(2024, 5, 3)};
-        r = engine.calculateCost(
             dt(2024, 6, 3, 10, 0, 0),
             dt(2024, 6, 3, 10, 3, 0),
             "0501234567", acc);
